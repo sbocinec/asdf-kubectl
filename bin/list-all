@@ -17,4 +17,10 @@ cmd="$cmd $releases_path"
 #versions=$(eval $cmd | grep -oE "tag_name\": *\".{1,15}\"," | sed 's/tag_name\": *\"v//;s/\",//' | sort_versions)
 #echo $versions
 
-echo $( $cmd | sed -Ee 's/^.*"tag_name":\s*"v(.*?)",.*$/\1_/' -e 'tx' -e 'd' -e ':x' |sort -V |sed 's/_$//' |tr '\n' ' ')
+versions=$( $cmd | sed -re 's/^.*"tag_name":\s*"v(.*?)",.*$/\1_/' -e 'tx' -e 'd' -e ':x' |sort -V |sed 's/_$//' |tr '\n' ' ')
+if [[ $? -eq 0 ]]; then
+  echo "$versions"
+else
+  exit 1
+fi
+
