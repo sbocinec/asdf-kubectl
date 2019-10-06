@@ -1,4 +1,4 @@
-language: c
+language: minimal
 script: asdf plugin-test kubectl https://github.com/Banno/asdf-kubectl.git
 before_script:
   - git clone https://github.com/asdf-vm/asdf.git
