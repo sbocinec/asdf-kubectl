@@ -7,20 +7,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        #os: [ubuntu-latest, ubuntu-18.04, macOS-latest]
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, ubuntu-18.04, macOS-latest]
     steps:
     - uses: actions/checkout@v1
 
     - name: Checkout asdf project
       run: git clone https://github.com/asdf-vm/asdf.git
 
-    - name: Test plugin
-      #env:
-      #  GITHUB_REPOSITORY: ${{ github.repository }}
+    - name: Test kubectl plugin
       run: |
-        env
-        echo "XXX: https://github.com/${GITHUB_REPOSITORY}.git XXX"
         source asdf/asdf.sh
         asdf plugin-test kubectl https://github.com/${GITHUB_REPOSITORY}.git
 
