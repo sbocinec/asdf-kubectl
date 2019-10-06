@@ -14,5 +14,12 @@ jobs:
       run: git clone https://github.com/asdf-vm/asdf.git
     - name: Activate asdf
       run: source asdf/asdf.sh
+    - name: Show env vars 
+      run: env
     - name: Test plugin
-      run: asdf plugin-test kubectl https://github.com/${GITHUB_REPOSITORY}.git
+      env:
+        GITHUB_REPOSITORY: ${{ GITHUB_REPOSITORY }}
+      run: |
+        env
+        asdf plugin-test kubectl https://github.com/${GITHUB_REPOSITORY}.git
+
