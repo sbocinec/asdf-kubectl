@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Checkout asdf project
-      run: https://github.com/asdf-vm/asdf.git$
+      run: https://github.com/asdf-vm/asdf.git
     - name: Activate asdf
       run: source .asdf/asdf.sh
     - name: Test plugin
