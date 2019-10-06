@@ -11,8 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Checkout asdf project
-      run: https://github.com/asdf-vm/asdf.git
+      run: git clone https://github.com/asdf-vm/asdf.git .asdf
     - name: Activate asdf
-      run: source .asdf/asdf.sh
+      run: source asdf/asdf.sh
     - name: Test plugin
       run: asdf plugin-test kubectl https://github.com/${GITHUB_REPOSITORY}.git
