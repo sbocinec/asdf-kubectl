@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+
+    runs-on: {{$matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-18.04, macOS-latest]
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Checkout asdf project
+      run: https://github.com/asdf-vm/asdf.git$
+    - name: Activate asdf
+      run: source .asdf/asdf.sh
+    - name: Test plugin
+      run: asdf plugin-test kubectl https://github.com/${GITHUB_REPOSITORY}.git
