@@ -1,13 +1,13 @@
 # asdf-kubectl
 
-[![Build Status](https://travis-ci.org/Banno/asdf-kubectl.svg?branch=master)](https://travis-ci.org/Banno/asdf-kubectl)
+![](https://github.com/sbocinec/asdf-kubectl/workflows/.github/workflows/test.yml/badge.svg)
 
 Kubectl plugin for [asdf](https://github.com/asdf-vm/asdf) version manager
 
 ## Install
 
 ```
-asdf plugin-add kubectl https://github.com/Banno/asdf-kubectl.git
+asdf plugin-add kubectl https://github.com/sbocinec/asdf-kubectl.git
 ```
 
 ## Use
